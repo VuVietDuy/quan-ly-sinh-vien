@@ -5,10 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.ClassDAO;
 import dao.InstructorDAO;
 import model.Instructor;
-import model._Class;
 import view.InstructorManagementView;
 import view.MessageDialog;
 
@@ -41,14 +39,14 @@ public class InstructorController implements ActionListener{
 		}
 		case "Xoá": {
 			if (view.displayInfo()) {
-				Instructor c = view.getDataInput();
+				Instructor i = view.getDataInput();
 				
 				MessageDialog message = new MessageDialog("Bạn có muốn xoá class này không?");
 				
 				message.getOkButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						boolean res = ClassDAO.getInstance().delete(c.getId());
+						boolean res = InstructorDAO.getInstance().delete(i.getId());
 						System.out.println("delete class is success: " + res);
 						view.addDataIntoTable();
 						view.exitForm();
@@ -71,25 +69,28 @@ public class InstructorController implements ActionListener{
 		}
 		case "Thêm": {
 			// Interact view
-			_Class c = view.getDataInput();
-			System.out.println(c);
+			Instructor i = view.getDataInput();
+			System.out.println(i);
 			
 			// Interact database
-			boolean res = ClassDAO.getInstance().insert(c);
-			System.out.println("insert class is success: " + res);
+			if (i != null) {
+				boolean res = InstructorDAO.getInstance().insert(i);
+				System.out.println("insert class is success: " + res);
+				
+				view.addDataIntoTable();
+				view.exitForm();
+			}
 			
-			view.addDataIntoTable();
-			view.exitForm();
 			
 			break;
 		}
 		case "Cập nhật": {
 			// Interact view
-			Instructor c = view.getDataInput();
-			System.out.println(c);
+			Instructor i = view.getDataInput();
+			System.out.println(i);
 			
 			// Interact database
-			boolean res = ClassDAO.getInstance().update(c.getId(), c);
+			boolean res = InstructorDAO.getInstance().update(i.getId(), i);
 			System.out.println("update class is success: " + res);
 			
 			view.exitForm();

@@ -17,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 
 import controller.StudentController;
+import controller.Util;
 import model.Gender;
 import model.Student;
 
@@ -38,7 +39,7 @@ public class StudentManagementView extends JPanel {
 	private JComboBox<String> sortByCB;
 	private StudentController studentController;
 	private JButton saveBtn;
-	private JTextField classOptionSearchCB;
+	private JComboBox<String> classOptionSearchCB;
 
 	/**
 	 ** Create the panel.
@@ -76,7 +77,8 @@ public class StudentManagementView extends JPanel {
 		searchBtn.setBounds(652, 11, 102, 32);
 		filterPanel.add(searchBtn);
 		
-		classOptionSearchCB = new JTextField();
+		String[] itemsClassCB = Util.getAllClassFromDb();
+		classOptionSearchCB = new JComboBox<>(itemsClassCB);
 		classOptionSearchCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		classOptionSearchCB.setBounds(327, 13, 120, 32);
 		filterPanel.add(classOptionSearchCB);
@@ -240,7 +242,6 @@ public class StudentManagementView extends JPanel {
 		
 		classInputTF = new JTextField();
 		classInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		classInputTF.setColumns(10);
 		classInputTF.setBounds(414, 106, 198, 32);
 		inputPanel.add(classInputTF);
 		
@@ -332,6 +333,8 @@ public class StudentManagementView extends JPanel {
 		}
 		this.addressInputTF.setText(address);
 		this.majorInputTF.setText(major);
+		
+		
 		this.classInputTF.setText(_class);
 		
 		return true;
@@ -379,12 +382,8 @@ public class StudentManagementView extends JPanel {
 		this.maSVSearchTF = maSVSearchTF;
 	}
 
-	public JTextField getClassOptionSearchCB() {
+	public JComboBox<String> getClassOptionSearchCB() {
 		return classOptionSearchCB;
-	}
-
-	public void setClassOptionSearchCB(JTextField classOptionSearchCB) {
-		this.classOptionSearchCB = classOptionSearchCB;
 	}
 
 	public JComboBox<String> getSortByCB() {

@@ -102,7 +102,7 @@ public class StudentController implements ActionListener{
 		}
 		case "Tìm kiếm" : {
 			
-			List<Student> students = StudentDAO.getInstance().searchStudent(view.getMaSVSearchTF().getText(), view.getClassOptionSearchCB().getText());
+			List<Student> students = StudentDAO.getInstance().searchStudent(view.getMaSVSearchTF().getText(), view.getClassOptionSearchCB().getItemAt(view.getClassOptionSearchCB().getSelectedIndex()));
 			view.addDataIntoTable(students);
 			for (Student student : students) {
 				System.out.println(student);

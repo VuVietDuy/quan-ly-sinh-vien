@@ -122,6 +122,7 @@ public class MajorManagementView extends JPanel {
 		khoiNganhCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		khoiNganhCB.setBounds(93, 103, 198, 32);
 		inputPane.add(khoiNganhCB);
+		khoiNganhCB.setSelectedIndex(-1);
 		
 		JPanel majorListPanel = new JPanel();
 		majorListPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
