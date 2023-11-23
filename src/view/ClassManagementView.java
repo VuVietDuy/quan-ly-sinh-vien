@@ -15,9 +15,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import controller.ClassController;
+import controller.Util;
 import model._Class;
 
 
@@ -27,11 +29,11 @@ public class ClassManagementView extends JPanel {
 	private JTable table;
 	private JTextField classIdInputTF;
 	private JTextField adviserInputTF;
-	private JTextField majorInputTF;
 	private JTextField noteInputTF;
 	private String option;
 	private ClassController classController;
 	private JButton saveBtn;
+	private JComboBox<String> majorInputCB;
 
 	/**
 	 * Create the panel.
@@ -44,7 +46,7 @@ public class ClassManagementView extends JPanel {
 		
 		JPanel inputPanel = new JPanel();
 		inputPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		inputPanel.setBounds(10, 11, 764, 150);
+		inputPanel.setBounds(10, 11, 978, 150);
 		add(inputPanel);
 		inputPanel.setLayout(null);
 		
@@ -52,25 +54,25 @@ public class ClassManagementView extends JPanel {
 		createBtn.setForeground(new Color(255, 255, 255));
 		createBtn.setBackground(new Color(0, 128, 0));
 		createBtn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		createBtn.setBounds(664, 13, 90, 32);
+		createBtn.setBounds(878, 13, 90, 32);
 		inputPanel.add(createBtn);
 		createBtn.addActionListener(classController);
 		
 		JButton updateBtn = new JButton("Sửa");
 		updateBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		updateBtn.setBounds(664, 58, 90, 32);
+		updateBtn.setBounds(878, 58, 90, 32);
 		inputPanel.add(updateBtn);
 		updateBtn.addActionListener(classController);
 		
 		JButton deleteBtn = new JButton("Xoá");
 		deleteBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		deleteBtn.setBounds(664, 103, 90, 32);
+		deleteBtn.setBounds(878, 103, 90, 32);
 		inputPanel.add(deleteBtn);
 		deleteBtn.addActionListener(classController);
 		
 		saveBtn = new JButton("Thêm");
 		saveBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		saveBtn.setBounds(402, 103, 90, 32);
+		saveBtn.setBounds(476, 103, 90, 32);
 		inputPanel.add(saveBtn);
 		saveBtn.addActionListener(classController);
 		
@@ -80,13 +82,13 @@ public class ClassManagementView extends JPanel {
 			}
 		});
 		exitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		exitBtn.setBounds(510, 103, 90, 32);
+		exitBtn.setBounds(584, 103, 90, 32);
 		inputPanel.add(exitBtn);
 		exitBtn.addActionListener(classController);
 		
 		classIdInputTF = new JTextField();
 		classIdInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		classIdInputTF.setBounds(68, 13, 198, 32);
+		classIdInputTF.setBounds(68, 13, 260, 32);
 		inputPanel.add(classIdInputTF);
 		classIdInputTF.setColumns(10);
 		
@@ -103,39 +105,40 @@ public class ClassManagementView extends JPanel {
 		adviserInputTF = new JTextField();
 		adviserInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		adviserInputTF.setColumns(10);
-		adviserInputTF.setBounds(68, 58, 198, 32);
+		adviserInputTF.setBounds(68, 58, 260, 32);
 		inputPanel.add(adviserInputTF);
 		
-		JLabel majorLb = new JLabel("Khoa");
+		JLabel majorLb = new JLabel("Ngành");
 		majorLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		majorLb.setBounds(10, 103, 55, 32);
 		inputPanel.add(majorLb);
 		
-		majorInputTF = new JTextField();
-		majorInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		majorInputTF.setColumns(10);
-		majorInputTF.setBounds(68, 103, 198, 32);
-		inputPanel.add(majorInputTF);
+		String[] itemsMajorCB = Util.getAllMajorFromDb();
+		majorInputCB = new JComboBox<>(itemsMajorCB);
+		majorInputCB.setSelectedIndex(-1);
+		majorInputCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		majorInputCB.setBounds(68, 103, 260, 32);
+		inputPanel.add(majorInputCB);
 		
 		JLabel noteLb = new JLabel("Ghi chú");
 		noteLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		noteLb.setBounds(337, 13, 55, 32);
+		noteLb.setBounds(411, 13, 55, 32);
 		inputPanel.add(noteLb);
 		
 		noteInputTF = new JTextField();
 		noteInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		noteInputTF.setColumns(10);
-		noteInputTF.setBounds(402, 14, 198, 32);
+		noteInputTF.setBounds(476, 14, 260, 32);
 		inputPanel.add(noteInputTF);
 		
 		JPanel classListPanel = new JPanel();
 		classListPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		classListPanel.setBounds(10, 172, 764, 355);
+		classListPanel.setBounds(10, 172, 978, 400);
 		add(classListPanel);
 		classListPanel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 36, 744, 308);
+		scrollPane.setBounds(10, 36, 958, 353);
 		classListPanel.add(scrollPane);
 		
 		table = new JTable();
@@ -144,7 +147,7 @@ public class ClassManagementView extends JPanel {
 			new Object[][] {
 			},
 			new String[] {
-				"Stt", "M\u00E3 l\u1EDBp", "C\u1ED1 v\u1EA5n", "Khoa", "Ghi ch\u00FA"
+				"Stt", "M\u00E3 l\u1EDBp", "C\u1ED1 v\u1EA5n", "Ngành", "Ghi ch\u00FA"
 			}
 		));
 		table.setRowHeight(24);
@@ -175,7 +178,15 @@ public class ClassManagementView extends JPanel {
 			
 			classIdInputTF.setText(classId);
 			adviserInputTF.setText(adviser);
-			majorInputTF.setText(major);
+			String[] items = Util.getAllMajorFromDb();
+			int indexMajorCB = -1;
+			for (int i = 0; i < items.length; i++) {
+				if (major.equals(items[i])) {
+					indexMajorCB = i;
+					break;
+				}
+			}
+			this.majorInputCB.setSelectedIndex(indexMajorCB);
 			noteInputTF.setText(note);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -190,7 +201,7 @@ public class ClassManagementView extends JPanel {
 		// TODO Auto-generated method stub
 		classIdInputTF.setText("");
 		adviserInputTF.setText("");
-		majorInputTF.setText("");
+		majorInputCB.setSelectedIndex(-1);
 		noteInputTF.setText("");
 	}
 
@@ -213,7 +224,7 @@ public class ClassManagementView extends JPanel {
 		try {
 			c.setId(this.classIdInputTF.getText());
 			c.setAdviser(this.adviserInputTF.getText());
-			c.setMajor(this.majorInputTF.getText());
+			c.setMajor(this.majorInputCB.getItemAt(majorInputCB.getSelectedIndex()));
 			c.setNote(this.noteInputTF.getText());
 		} catch (Exception e) {
 			e.printStackTrace();

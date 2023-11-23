@@ -1,6 +1,6 @@
 package model;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private String maSV;
     private String name;
     private String birthday;
@@ -14,7 +14,6 @@ public class Student {
 	
 	public Student(String maSV, String name, String birthday, Gender gender, String address, String major,
 			String _class) {
-		super();
 		this.maSV = maSV;
 		this.name = name;
 		this.birthday = birthday;
@@ -82,5 +81,20 @@ public class Student {
 		return "Student [maSV=" + maSV + ", name=" + name + ", birthday=" + birthday + ", gender=" + gender
 				+ ", address=" + address + ", major=" + major + ", _class=" + _class + "]";
 	}
-    
+	
+	public String getFirstName() {
+		String[] words = name.split("\\s+");
+
+        if (words.length > 0) {
+            return words[words.length - 1];
+        } else {
+            return "";
+        }
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		// TODO Auto-generated method stub
+		return this.getFirstName().compareTo(o.getFirstName());
+	}
 }

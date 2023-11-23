@@ -44,7 +44,7 @@ public class MajorManagementView extends JPanel {
 		
 		JPanel inputPane = new JPanel();
 		inputPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		inputPane.setBounds(10, 11, 764, 150);
+		inputPane.setBounds(10, 11, 978, 150);
 		add(inputPane);
 		inputPane.setLayout(null);
 		
@@ -52,64 +52,64 @@ public class MajorManagementView extends JPanel {
 		createBtn.setForeground(new Color(255, 255, 255));
 		createBtn.setBackground(new Color(0, 128, 0));
 		createBtn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		createBtn.setBounds(664, 13, 90, 32);
+		createBtn.setBounds(878, 13, 90, 32);
 		inputPane.add(createBtn);
 		createBtn.addActionListener(majorController);
 		
 		JButton updateBtn = new JButton("Sửa");
 		updateBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		updateBtn.setBounds(664, 58, 90, 32);
+		updateBtn.setBounds(878, 58, 90, 32);
 		inputPane.add(updateBtn);
 		updateBtn.addActionListener(majorController);
 		
 		JButton deleteBtn = new JButton("Xoá");
 		deleteBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		deleteBtn.setBounds(664, 103, 90, 32);
+		deleteBtn.setBounds(878, 103, 90, 32);
 		inputPane.add(deleteBtn);
 		deleteBtn.addActionListener(majorController);
 
 		saveBtn = new JButton("Thêm");
 		saveBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		saveBtn.setBounds(400, 103, 90, 32);
+		saveBtn.setBounds(492, 105, 90, 32);
 		inputPane.add(saveBtn);
 		saveBtn.addActionListener(majorController);
 		
 		exitBtn = new JButton("Huỷ bỏ");
 		exitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		exitBtn.setBounds(508, 103, 90, 32);
+		exitBtn.setBounds(600, 105, 90, 32);
 		inputPane.add(exitBtn);
 		exitBtn.addActionListener(majorController);
 		
 		majorIdInputTF = new JTextField();
 		majorIdInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		majorIdInputTF.setBounds(93, 13, 198, 32);
+		majorIdInputTF.setBounds(93, 13, 260, 32);
 		inputPane.add(majorIdInputTF);
 		
-		JLabel majorIdLb = new JLabel("Mã khoa");
+		JLabel majorIdLb = new JLabel("Mã ngành");
 		majorIdLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		majorIdLb.setBounds(10, 13, 63, 32);
 		inputPane.add(majorIdLb);
 		
-		JLabel majorNameLb = new JLabel("Tên khoa");
+		JLabel majorNameLb = new JLabel("Tên ngành");
 		majorNameLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		majorNameLb.setBounds(10, 58, 63, 32);
+		majorNameLb.setBounds(10, 58, 73, 32);
 		inputPane.add(majorNameLb);
 		
 		majorNameInputTF = new JTextField();
 		majorNameInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		majorNameInputTF.setColumns(10);
-		majorNameInputTF.setBounds(93, 58, 198, 32);
+		majorNameInputTF.setBounds(93, 58, 260, 32);
 		inputPane.add(majorNameInputTF);
 		
 		JLabel noteLb = new JLabel("Ghi chú");
 		noteLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		noteLb.setBounds(327, 13, 63, 32);
+		noteLb.setBounds(419, 15, 63, 32);
 		inputPane.add(noteLb);
 		
 		noteInputTF = new JTextField();
 		noteInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		noteInputTF.setColumns(10);
-		noteInputTF.setBounds(400, 11, 198, 32);
+		noteInputTF.setBounds(492, 13, 260, 32);
 		inputPane.add(noteInputTF);
 		
 		JLabel khoiNganhLb = new JLabel("Khối ngành");
@@ -120,18 +120,18 @@ public class MajorManagementView extends JPanel {
 		String[] items = {"Kỹ thuật", "Kinh tế"};
 		khoiNganhCB = new JComboBox<>(items);
 		khoiNganhCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		khoiNganhCB.setBounds(93, 103, 198, 32);
+		khoiNganhCB.setBounds(93, 103, 260, 32);
 		inputPane.add(khoiNganhCB);
 		khoiNganhCB.setSelectedIndex(-1);
 		
 		JPanel majorListPanel = new JPanel();
 		majorListPanel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		majorListPanel.setBounds(10, 172, 764, 355);
+		majorListPanel.setBounds(10, 172, 978, 400);
 		add(majorListPanel);
 		majorListPanel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 36, 744, 308);
+		scrollPane.setBounds(10, 36, 958, 353);
 		majorListPanel.add(scrollPane);
 		
 		table = new JTable();
@@ -140,7 +140,7 @@ public class MajorManagementView extends JPanel {
 			new Object[][] {
 			},
 			new String[] {
-				"Stt", "Mã khoa", "Tên khoa", "Khối ngành", "Ghi chú"
+				"Stt", "Mã ngành", "Tên ngành", "Khối ngành", "Ghi chú"
 			}
 		));
 		table.setRowHeight(24);
@@ -148,7 +148,7 @@ public class MajorManagementView extends JPanel {
 		scrollPane.setViewportView(table);
 		this.addDataIntoTable();
 		
-		JLabel majorListLb = new JLabel("Danh sách khoa");
+		JLabel majorListLb = new JLabel("Danh sách ngành");
 		majorListLb.setBounds(10, 11, 139, 14);
 		majorListPanel.add(majorListLb);
 		majorListLb.setFont(new Font("Tahoma", Font.PLAIN, 14));

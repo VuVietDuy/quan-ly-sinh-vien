@@ -7,8 +7,7 @@ import java.sql.Statement;
 public class CreateDBTable {
 	
 	private final static String INIT_USERS_TABLE = "CREATE TABLE users (\r\n"
-			+ "  id INTEGER PRIMARY KEY AUTO_INCREMENT,\r\n"
-			+ "  username VARCHAR(255),\r\n"
+			+ "  username VARCHAR(255)  PRIMARY KEY,\r\n"
 			+ "  password VARCHAR(255),\r\n"
 			+ "  created_at TIMESTAMP,\r\n"
 			+ "  updated_at TIMESTAMP\r\n"

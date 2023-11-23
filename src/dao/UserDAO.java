@@ -14,10 +14,10 @@ public class UserDAO {
 		return new UserDAO();
 	}
 	
-	private static final String GET_USER_BY_USERNAME = "SELECT username, password FROM quan_ly_sinh_vien.users WHERE username = ?";
-	private static final String GET_ALL_USER = "SELECT * FROM quan_ly_sinh_vien.users";
+	private static final String GET_USER_BY_USERNAME = "SELECT * FROM users WHERE username = ?";
+	private static final String GET_ALL_USER = "SELECT * FROM users";
 	
-	public void getUserByUsername(String username) {
+	public User getUserByUsername(String username) {
 		
 		User user = new User();
 		
@@ -28,15 +28,17 @@ public class UserDAO {
 			
 			ResultSet result = pre.executeQuery();
 			
-			System.out.println(result.getString("username"));
+			while (result.next()) {
+				user.setUsername(result.getString("username"));
+				user.setPassword(result.getString("password"));
+			}
 			
-//			user.setUsername(result.getString("username"));
-//			user.setPassword(result.getString("password"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("error");
 		}
+		return user;
 	}
 	
 	public void getAllUser() {

@@ -77,6 +77,7 @@ public class StudentController implements ActionListener{
 			System.out.println("insert class is success: " + res);
 			
 			view.addDataIntoTable(getDataFromDb());
+			view.getSortByCB().setSelectedIndex(0);
 			view.exitForm();
 			
 			break;
@@ -92,6 +93,7 @@ public class StudentController implements ActionListener{
 			
 			view.exitForm();
 			view.addDataIntoTable(getDataFromDb());
+			view.getSortByCB().setSelectedIndex(0);
 			view.setOption("DEFAULT_OPTION");
 			break;
 		}
@@ -119,5 +121,4 @@ public class StudentController implements ActionListener{
 		res = StudentDAO.getInstance().getAll();
 		return res;
 	}
-	
 }

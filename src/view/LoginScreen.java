@@ -77,17 +77,19 @@ public class LoginScreen extends JFrame {
 		contentPane.add(passwordLb);
 		
 		usernameTF = new JTextField();
+		usernameTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		usernameTF.setBounds(241, 133, 300, 36);
 		contentPane.add(usernameTF);
 		usernameTF.setColumns(10);
 		
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		passwordField.setBounds(241, 193, 300, 36);
 		contentPane.add(passwordField);
 		
 		JButton loginBtn = new JButton("Đăng nhập");
 		loginBtn.setBackground(new Color(255, 255, 255));
-		loginBtn.setFont(font);
+		loginBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		loginBtn.setBounds(224, 274, 198, 36);
 		contentPane.add(loginBtn);
 		

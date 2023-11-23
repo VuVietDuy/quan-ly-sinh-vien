@@ -41,7 +41,7 @@ public class ClassController implements ActionListener{
 			if (view.displayInfo()) {
 				_Class c = view.getDataInput();
 				
-				MessageDialog message = new MessageDialog("Bạn có muốn xoá class này không?");
+				MessageDialog message = new MessageDialog("Bạn có muốn xoá lớp này không?");
 				
 				message.getOkButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {

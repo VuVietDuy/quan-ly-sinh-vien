@@ -39,8 +39,7 @@ CREATE TABLE classes (
 );
 
 CREATE TABLE users (
-  id CHAR(10) PRIMARY KEY,
-  username VARCHAR(255),
+  username VARCHAR(255)  PRIMARY KEY,
   password VARCHAR(255),
   created_at TIMESTAMP,
   updated_at TIMESTAMP

@@ -3,6 +3,12 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import view.LoginScreen;
 import view.MenuBarManager;
 
 public class MenuBarController implements ActionListener{
@@ -25,10 +31,22 @@ public class MenuBarController implements ActionListener{
 			this.menu.setStudentManagementView();
 		} else if (option.equals("Giảng viên")) {
 			this.menu.setInstructorManagementView();
-		} else if (option.equals("Khoa")) {
+		} else if (option.equals("Ngành")) {
 			this.menu.setMajorManagementView();
 		} else if (option.equals("Đăng xuất")) {
 			this.menu.closeWindow();
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.openWindow();
+		} else if (option.equals("Export")){
+			JTable table = this.menu.getTable();
+			JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Specify a file to save");
+            int userSelection = fileChooser.showSaveDialog(null);
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                String filePath = fileChooser.getSelectedFile().getAbsolutePath() + ".xlsx";
+                Util.exportToExcel((DefaultTableModel) table.getModel(), filePath);
+                JOptionPane.showMessageDialog(null, "Exported to Excel successfully!");
+            }
 		}
 	}
 

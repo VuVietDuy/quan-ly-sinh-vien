@@ -44,7 +44,7 @@ public class InstructorManagementView extends JPanel {
 		
 		JPanel inputPane = new JPanel();
 		inputPane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		inputPane.setBounds(10, 11, 764, 200);
+		inputPane.setBounds(10, 11, 978, 200);
 		add(inputPane);
 		inputPane.setLayout(null);
 		
@@ -52,25 +52,25 @@ public class InstructorManagementView extends JPanel {
 		createBtn.setForeground(new Color(255, 255, 255));
 		createBtn.setBackground(new Color(0, 128, 0));
 		createBtn.setFont(new Font("Tahoma", Font.BOLD, 14));
-		createBtn.setBounds(664, 13, 90, 32);
+		createBtn.setBounds(878, 62, 90, 32);
 		inputPane.add(createBtn);
 		createBtn.addActionListener(instructorController);
 		
 		JButton updateBtn = new JButton("Sửa");
 		updateBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		updateBtn.setBounds(664, 58, 90, 32);
+		updateBtn.setBounds(878, 107, 90, 32);
 		inputPane.add(updateBtn);
 		updateBtn.addActionListener(instructorController);
 		
 		JButton deleteBtn = new JButton("Xoá");
 		deleteBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		deleteBtn.setBounds(664, 103, 90, 32);
+		deleteBtn.setBounds(878, 152, 90, 32);
 		deleteBtn.addActionListener(instructorController);
 		inputPane.add(deleteBtn);
 		
 		instructorIdInputTF = new JTextField();
 		instructorIdInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		instructorIdInputTF.setBounds(102, 14, 198, 32);
+		instructorIdInputTF.setBounds(102, 14, 260, 32);
 		inputPane.add(instructorIdInputTF);
 		instructorIdInputTF.setColumns(10);
 		
@@ -87,7 +87,7 @@ public class InstructorManagementView extends JPanel {
 		nameInputTF = new JTextField();
 		nameInputTF.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		nameInputTF.setColumns(10);
-		nameInputTF.setBounds(102, 60, 198, 32);
+		nameInputTF.setBounds(102, 60, 260, 32);
 		inputPane.add(nameInputTF);
 		
 		JLabel levelLb = new JLabel("Trình độ");
@@ -98,7 +98,7 @@ public class InstructorManagementView extends JPanel {
 		String[] items = {"Thạc sĩ", "Tiến sĩ" ,"Phó giáo sư tiến sĩ"};
 		levelCB = new JComboBox<>(items);
 		levelCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		levelCB.setBounds(102, 106, 198, 32);
+		levelCB.setBounds(102, 106, 260, 32);
 		inputPane.add(levelCB);
 		levelCB.setSelectedIndex(-1);
 		
@@ -109,28 +109,28 @@ public class InstructorManagementView extends JPanel {
 		
 		JLabel genderLB = new JLabel("Giới tính");
 		genderLB.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		genderLB.setBounds(337, 13, 66, 32);
+		genderLB.setBounds(404, 14, 66, 32);
 		inputPane.add(genderLB);
 		
-		JLabel majorLb = new JLabel("Khoa");
+		JLabel majorLb = new JLabel("Ngành");
 		majorLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		majorLb.setBounds(337, 59, 66, 32);
+		majorLb.setBounds(404, 60, 66, 32);
 		inputPane.add(majorLb);
 		
 		nationalityInputLb = new JTextField();
 		nationalityInputLb.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		nationalityInputLb.setColumns(10);
-		nationalityInputLb.setBounds(102, 152, 198, 32);
+		nationalityInputLb.setBounds(102, 152, 260, 32);
 		inputPane.add(nationalityInputLb);
 		
 		manRdbtn = new JRadioButton("Nam");
 		manRdbtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		manRdbtn.setBounds(421, 13, 53, 32);
+		manRdbtn.setBounds(488, 14, 53, 32);
 		inputPane.add(manRdbtn);
 		
 		womenRdbtn = new JRadioButton("Nữ");
 		womenRdbtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		womenRdbtn.setBounds(490, 13, 53, 32);
+		womenRdbtn.setBounds(557, 14, 53, 32);
 		inputPane.add(womenRdbtn);
 		
 		ButtonGroup btnG = new ButtonGroup();
@@ -141,29 +141,29 @@ public class InstructorManagementView extends JPanel {
 		majorInputCB = new JComboBox<>(itemsMajorCB);
 		majorInputCB.setSelectedIndex(-1);
 		majorInputCB.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		majorInputCB.setBounds(413, 59, 198, 32);
+		majorInputCB.setBounds(480, 60, 260, 32);
 		inputPane.add(majorInputCB);
 		
 		saveBtn = new JButton("Thêm");
 		saveBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		saveBtn.setBounds(413, 152, 90, 32);
+		saveBtn.setBounds(480, 153, 90, 32);
 		inputPane.add(saveBtn);
 		saveBtn.addActionListener(instructorController);
 		
 		JButton exitBtn = new JButton("Huỷ bỏ");
 		exitBtn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		exitBtn.setBounds(521, 152, 90, 32);
+		exitBtn.setBounds(588, 153, 90, 32);
 		inputPane.add(exitBtn);
 		exitBtn.addActionListener(instructorController);
 		
 		JPanel tablePane = new JPanel();
 		tablePane.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		tablePane.setBounds(10, 222, 764, 355);
+		tablePane.setBounds(10, 222, 978, 355);
 		add(tablePane);
 		tablePane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 41, 744, 303);
+		scrollPane.setBounds(10, 41, 958, 303);
 		tablePane.add(scrollPane);
 		
 		table = new JTable();
@@ -172,7 +172,7 @@ public class InstructorManagementView extends JPanel {
 			new Object[][] {
 			},
 			new String[] {
-				"Stt", "Mã giảng viên", "Họ và tên", "Trình độ", "Quốc tịch", "Giới tính", "Khoa"
+				"Stt", "Mã giảng viên", "Họ và tên", "Trình độ", "Quốc tịch", "Giới tính", "Ngành"
 			}
 		));
 		table.setRowHeight(24);

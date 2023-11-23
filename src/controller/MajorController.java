@@ -42,7 +42,7 @@ public class MajorController implements ActionListener{
 			if (view.displayInfo()) {
 				Major c = view.getDataInput();
 				
-				MessageDialog message = new MessageDialog("Bạn có muốn xoá class này không?");
+				MessageDialog message = new MessageDialog("Bạn có muốn xoá ngành này không?");
 				
 				message.getOkButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {

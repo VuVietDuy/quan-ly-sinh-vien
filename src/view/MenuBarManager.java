@@ -6,6 +6,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 
 import controller.MenuBarController;
 
@@ -31,6 +32,11 @@ public class MenuBarManager extends JMenuBar{
 		homeMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		systemMenu.add(homeMenu);
 		homeMenu.addActionListener(menuBarLisener);
+		
+		JMenuItem exportMenu = new JMenuItem("Export");
+		exportMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		systemMenu.add(exportMenu);
+		exportMenu.addActionListener(menuBarLisener);
 		
 		JSeparator separator = new JSeparator();
 		systemMenu.add(separator);
@@ -59,7 +65,7 @@ public class MenuBarManager extends JMenuBar{
 		featuresMenu.add(instructorMenu);
 		instructorMenu.addActionListener(menuBarLisener);
 		
-		JMenuItem majorMenu = new JMenuItem("Khoa");
+		JMenuItem majorMenu = new JMenuItem("Ngành");
 		majorMenu.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		featuresMenu.add(majorMenu);
 		majorMenu.addActionListener(menuBarLisener);
@@ -86,6 +92,10 @@ public class MenuBarManager extends JMenuBar{
     
     public void setInstructorManagementView() {
         this.mainScreen.setInstructorManagementView();
+    }
+    
+    public JTable getTable() {
+    	return this.mainScreen.getStudentManagementView().getTableStudent();
     }
     
     public void closeWindow() {

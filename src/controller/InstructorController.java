@@ -41,7 +41,7 @@ public class InstructorController implements ActionListener{
 			if (view.displayInfo()) {
 				Instructor i = view.getDataInput();
 				
-				MessageDialog message = new MessageDialog("Bạn có muốn xoá class này không?");
+				MessageDialog message = new MessageDialog("Bạn có muốn xoá giảng viên này không?");
 				
 				message.getOkButton().addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {

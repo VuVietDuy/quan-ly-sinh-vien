@@ -35,7 +35,7 @@ public class MainScreen extends JFrame {
     public MainScreen() {
         setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 650);
+        setBounds(100, 100, 1010, 680);
 
         MenuBarManager menuBar = new MenuBarManager(this);
         setJMenuBar(menuBar.getMenuBar());
@@ -46,8 +46,6 @@ public class MainScreen extends JFrame {
         instructorManagementView = new InstructorManagementView();
         setContentPane(studentManagementView);
     }
-    
-    
 
     public void setStudentManagementView() {
         setContentPane(studentManagementView);
@@ -73,7 +71,27 @@ public class MainScreen extends JFrame {
         repaint();
     }
     
-    public void closeJWindow() {
+    public StudentManagementView getStudentManagementView() {
+		return studentManagementView;
+	}
+
+	public ClassManagementView getClassManagementView() {
+		return classManagementView;
+	}
+
+	public MajorManagementView getMajorManagementView() {
+		return majorManagementView;
+	}
+
+	public InstructorManagementView getInstructorManagementView() {
+		return instructorManagementView;
+	}
+
+	public void closeJWindow() {
     	setVisible(false);
+    }
+    
+    public void openMainScreen() {
+    	setVisible(true);
     }
 }
